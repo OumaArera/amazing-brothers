@@ -29,6 +29,24 @@ import CaregiverSleep     from './pages/caregiver/Sleep';
 import ManagerPlaceholder   from './pages/manager/Placeholder';
 import CaregiverPlaceholder from './pages/caregiver/Placeholder';
 
+import ManagerUpdates   from './pages/manager/Updates';
+import CaregiverUpdates from './pages/caregiver/Updates';
+
+
+// Leave pages
+import ManagerLeave   from './pages/manager/Leave';
+import CaregiverLeave from './pages/caregiver/Leave';
+
+// Late Submission pages
+import ManagerLateSubmissions  from './pages/manager/LateSubmissions';
+import CaregiverLateSubmission from './pages/caregiver/LateSubmissions';
+
+// Utilities pages
+import ManagerUtilities   from './pages/manager/Utilities';
+import CaregiverUtilities from './pages/caregiver/Utilities';
+
+
+
 // ── Role-aware smart redirect ─────────────────────────────────────────────────
 const RoleRedirect = () => {
   const { isAuthenticated, user, loading } = useAuth();
@@ -83,14 +101,21 @@ const App = () => (
 
         {/* ✅ Sleep now uses real component */}
         <Route path="/manager/sleep" element={<M><ManagerSleep /></M>} />
+        <Route path="/manager/updates"          element={<M><ManagerUpdates /></M>} />
+        <Route path="/caregiver/updates"         element={<C><CaregiverUpdates /></C>} />
+        <Route path="/manager/leave"            element={<M><ManagerLeave /></M>} />
+        <Route path="/caregiver/leave"           element={<C><CaregiverLeave /></C>} />
 
         {/* Other manager placeholders */}
         <Route path="/manager/vitals" element={<M><ManagerVitals /></M>} />
         <Route path="/manager/updates" element={<M><ManagerPlaceholder title="Resident Updates" icon="📝" /></M>} />
         <Route path="/manager/leave" element={<M><ManagerPlaceholder title="Leave Requests" icon="🏖️" /></M>} />
-        <Route path="/manager/utilities" element={<M><ManagerPlaceholder title="Utilities & Repairs" icon="🔧" /></M>} />
         <Route path="/manager/groceries" element={<M><ManagerPlaceholder title="Groceries" icon="🛒" /></M>} />
-        <Route path="/manager/late-submissions" element={<M><ManagerPlaceholder title="Late Submissions" icon="⏰" /></M>} />
+        
+        <Route path="/manager/late-submissions" element={<M><ManagerLateSubmissions /></M>} />
+        <Route path="/caregiver/late-submission" element={<C><CaregiverLateSubmission /></C>} />
+        <Route path="/caregiver/utilities"       element={<C><CaregiverUtilities /></C>} />
+
 
         {/* ── Caregiver ── */}
         <Route path="/caregiver" element={<C><CaregiverDashboard /></C>} />
@@ -108,8 +133,7 @@ const App = () => (
         <Route path="/caregiver/appointments" element={<C><CaregiverPlaceholder title="Appointments" icon="📅" /></C>} />
         <Route path="/caregiver/assessments" element={<C><CaregiverPlaceholder title="Assessments" icon="📋" /></C>} />
         <Route path="/caregiver/leave" element={<C><CaregiverPlaceholder title="Request Leave" icon="🏖️" /></C>} />
-        <Route path="/caregiver/late-submission" element={<C><CaregiverPlaceholder title="Late Submission" icon="⏰" /></C>} />
-        <Route path="/caregiver/utilities" element={<C><CaregiverPlaceholder title="Utilities & Repairs" icon="🔧" /></C>} />
+        <Route path="/manager/utilities"        element={<M><ManagerUtilities /></M>} />
         <Route path="/caregiver/groceries" element={<C><CaregiverPlaceholder title="Groceries" icon="🛒" /></C>} />
 
         {/* 404 */}

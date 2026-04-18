@@ -45,7 +45,13 @@ import CaregiverLateSubmission from './pages/caregiver/LateSubmissions';
 import ManagerUtilities   from './pages/manager/Utilities';
 import CaregiverUtilities from './pages/caregiver/Utilities';
 
+// Groceries pages
+import ManagerGroceries   from './pages/manager/Groceries';
+import CaregiverGroceries from './pages/caregiver/Groceries';
 
+// Caregiver Appointments
+import CaregiverAppointments from './pages/caregiver/Appointments';
+import CaregiverAssessments  from './pages/caregiver/Assessments';
 
 // ── Role-aware smart redirect ─────────────────────────────────────────────────
 const RoleRedirect = () => {
@@ -110,11 +116,13 @@ const App = () => (
         <Route path="/manager/vitals" element={<M><ManagerVitals /></M>} />
         <Route path="/manager/updates" element={<M><ManagerPlaceholder title="Resident Updates" icon="📝" /></M>} />
         <Route path="/manager/leave" element={<M><ManagerPlaceholder title="Leave Requests" icon="🏖️" /></M>} />
-        <Route path="/manager/groceries" element={<M><ManagerPlaceholder title="Groceries" icon="🛒" /></M>} />
+        {/* <Route path="/manager/groceries" element={<M><ManagerPlaceholder title="Groceries" icon="🛒" /></M>} /> */}
         
         <Route path="/manager/late-submissions" element={<M><ManagerLateSubmissions /></M>} />
         <Route path="/caregiver/late-submission" element={<C><CaregiverLateSubmission /></C>} />
         <Route path="/caregiver/utilities"       element={<C><CaregiverUtilities /></C>} />
+        <Route path="/manager/groceries"        element={<M><ManagerGroceries /></M>} />
+        <Route path="/caregiver/groceries"       element={<C><CaregiverGroceries /></C>} />
 
 
         {/* ── Caregiver ── */}
@@ -130,11 +138,11 @@ const App = () => (
         {/* Other caregiver features */}
         <Route path="/caregiver/vitals" element={<C><CaregiverVitals /></C>} />
         <Route path="/caregiver/updates" element={<C><CaregiverPlaceholder title="Resident Updates" icon="📝" /></C>} />
-        <Route path="/caregiver/appointments" element={<C><CaregiverPlaceholder title="Appointments" icon="📅" /></C>} />
-        <Route path="/caregiver/assessments" element={<C><CaregiverPlaceholder title="Assessments" icon="📋" /></C>} />
+        <Route path="/caregiver/appointments"    element={<C><CaregiverAppointments /></C>} />
+        <Route path="/caregiver/assessments"     element={<C><CaregiverAssessments /></C>} />
         <Route path="/caregiver/leave" element={<C><CaregiverPlaceholder title="Request Leave" icon="🏖️" /></C>} />
         <Route path="/manager/utilities"        element={<M><ManagerUtilities /></M>} />
-        <Route path="/caregiver/groceries" element={<C><CaregiverPlaceholder title="Groceries" icon="🛒" /></C>} />
+        {/* <Route path="/caregiver/groceries" element={<C><CaregiverPlaceholder title="Groceries" icon="🛒" /></C>} /> */}
 
         {/* 404 */}
         <Route path="*" element={<NotFound />} />
